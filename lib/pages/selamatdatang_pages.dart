@@ -40,7 +40,89 @@ class selamatdatang extends StatelessWidget {
                 height: 60,
                 width: MediaQuery.of(context).size.width - 2 * defaultmargin,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showModalBottomSheet(
+                          isScrollControlled: true,
+                          context: context,
+                          builder: (context) {
+                            return StatefulBuilder(builder:
+                                (BuildContext context, StateSetter setState) {
+                              return Wrap(
+                                children: [
+                                  //Bagian Modal
+                                  Container(
+                                      color: Colors.transparent,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: backgroundColor,
+                                            borderRadius: BorderRadius.only(
+                                                topRight: Radius.circular(40),
+                                                topLeft: Radius.circular(40))),
+                                        child: Container(
+                                          margin: EdgeInsets.symmetric(
+                                              horizontal: defaultmargin),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              //jarak
+                                              SizedBox(
+                                                height: 25,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        "Hello...",
+                                                        style: deskripsiTextStyle
+                                                            .copyWith(
+                                                                fontSize: 20,
+                                                                color:
+                                                                    guestColor),
+                                                      ),
+                                                      Text(
+                                                        "Registrasi",
+                                                        style:
+                                                            registrasiTextStyle
+                                                                .copyWith(
+                                                          fontSize: 30,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Spacer(),
+                                                  Center(
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        //!Ketika Icon di tekan maka popup akan close
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Image.asset(
+                                                          'assets/images/close.png',
+                                                          height: 24,
+                                                          width: 24),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 25,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ))
+                                ],
+                              );
+                            });
+                          });
+                    },
                     child: Text(
                       'Create Account',
                       style: deskripsiTextStyle.copyWith(
@@ -59,75 +141,13 @@ class selamatdatang extends StatelessWidget {
                 height: 60,
                 width: MediaQuery.of(context).size.width - 2 * defaultmargin,
                 child: ElevatedButton(
-                    onPressed: () {
-                      showModalBottomSheet(
-                          isScrollControlled: true,
-                          context: context,
-                          builder: (context) {
-                            return StatefulBuilder(builder:
-                                (BuildContext context, StateSetter setState) {
-                              return Wrap(
-                                children: [
-                                  //Bagian Modal
-                                  Container(
-                                    color: Colors.transparent,
-                                    child: Container(
-                                      margin: EdgeInsets.symmetric(
-                                          horizontal: defaultmargin),
-                                      decoration: BoxDecoration(
-                                          color: secondaryColor,
-                                          borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(40),
-                                              topLeft: Radius.circular(40))),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          //jarak
-                                          SizedBox(
-                                            height: 25,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  Text(
-                                                    "Hello...",
-                                                    style: deskripsiTextStyle
-                                                        .copyWith(fontSize: 20),
-                                                  ),
-                                                  Text(
-                                                    "Registrasi",
-                                                    style: deskripsiTextStyle
-                                                        .copyWith(
-                                                      fontSize: 30,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Image.asset(
-                                                  'assets/images/close.png',
-                                                  height: 24,
-                                                  width: 24)
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              );
-                            });
-                          });
-                    },
+                    onPressed: () {},
                     child: Text(
                       'Login',
                       style: deskripsiTextStyle.copyWith(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: secondaryColor),
+                          color: guestColor),
                     ),
                     style: ElevatedButton.styleFrom(
                         primary: primaryColor,

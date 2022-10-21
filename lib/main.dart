@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mop_green/pages/pages.dart';
+import 'package:mop_green/shared/shared.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,6 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primarySwatch: Colors.cyan,
+          primaryColor: primaryColor,
+          canvasColor: Colors.transparent),
       home: selamatdatang(),
     );
   }
